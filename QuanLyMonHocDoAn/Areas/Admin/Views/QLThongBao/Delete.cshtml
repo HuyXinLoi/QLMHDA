@@ -1,0 +1,99 @@
+﻿@model QuanLyMonHocDoAn.Models.Thongbao
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Xóa Thông Báo</h2>
+<h4 class="text-center">Bạn có thật sự muốn xóa không?</h4>
+<div class="delete-container">
+    <h4 class="text-center"> Thông tin chi tiết</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt class="dt-label">@Html.DisplayNameFor(model => model.TenThongBao)</dt>
+        <dd class="dd-value">@Html.DisplayFor(model => model.TenThongBao)</dd>
+
+        <dt class="dt-label">@Html.DisplayNameFor(model => model.NoiDungTb)</dt>
+        <dd class="dd-value">@Html.DisplayFor(model => model.NoiDungTb)</dd>
+
+        <dt class="dt-label">@Html.DisplayNameFor(model => model.NgayGui)</dt>
+        <dd class="dd-value">@Html.DisplayFor(model => model.NgayGui)</dd>
+
+        <dt class="dt-label">@Html.DisplayNameFor(model => model.NguoiNhan)</dt>
+        <dd class="dd-value">@Html.DisplayFor(model => model.NguoiNhan)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions text-right">
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            <span> | </span>
+            @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+<style>
+    .delete-container {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dl-horizontal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .dt-label {
+        width: 215px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .dd-value {
+        margin-top: 10px;
+        margin-left: 220px;
+    }
+
+    .form-actions {
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+        border-color: #dc3545;
+    }
+
+    .btn-default {
+        background-color: #fff;
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-default:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+</style>

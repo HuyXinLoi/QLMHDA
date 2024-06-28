@@ -1,0 +1,124 @@
+﻿@model QuanLyMonHocDoAn.Models.Giangvien
+
+@{
+    ViewBag.Title = "ProfileGV";
+    Layout = "~/Views/Shared/_LayoutGIangVien.cshtml";
+}
+
+<style>
+    .card {
+        background: #654ea3;
+        background: linear-gradient(to right, #e96443, #904e95);
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #BA68C8
+    }
+
+    .profile-button {
+        background: rgb(99, 39, 120);
+        box-shadow: none;
+        border: none
+    }
+
+        .profile-button:hover {
+            background: #682773
+        }
+
+        .profile-button:focus {
+            background: #682773;
+            box-shadow: none
+        }
+
+        .profile-button:active {
+            background: #682773;
+            box-shadow: none
+        }
+
+    .back:hover {
+        color: #682773;
+        cursor: pointer
+    }
+
+    .labels {
+        font-weight: 600;
+        font-size: 15px
+    }
+
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/GiangVien/ProfileGV" method="post">
+                        <div class="container rounded bg-white mt-5 mb-5">
+                            <div class="row">
+                                <div class="col-md-3 border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150" src="https://png2.cleanpng.com/sh/69646fdaaefef206e2cd66ea149ee826/L0KzQYm3VsMxN5hukpH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TgRmaZRtfeQ2cHXncbj2hCkubZV6e9N9aXBxPbbBkPVzcZZzRdtsb36whLbogBhmel46eqUCMUPmSLSAWcI2O181TaQ5OUS8R4K8U8A0O2c3SKIDMUe4PsH1h5==/kisspng-computer-icons-teacher-pedagogy-education-experien-icon-teacher-5b3713c8c79253.0520949715303362008175.png"><span class="font-weight-bold">Giảng Viên</span><span class="text-black-50">@Html.DisplayFor(model => model.Gmail)</span><span> </span></div>
+                                </div>
+                                <div class="col-md-5 border-right">
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="text-right" style="font-weight:700">Thông tin cá nhân</h4>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Họ tên</label><input type="text" class="form-control" placeholder="first name" readonly value="@Html.DisplayFor(model => model.TenGiangVien)"></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Mã số sinh viên</label><input type="text" class="form-control" readonly value="@Html.DisplayFor(model => model.MaSoGiangVien)"></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Ngày sinh</label><input type="text" class="form-control" readonly placeholder="Ngày sinh" value="@Model.NgaySinh.Value.ToString("MM/dd/yyyy") "></div>
+                                        </div>
+                                        @*<div class="col-md-12"><label class="labels">Giới tính</label><input type="text" class="form-control" value="@Html.DisplayFor(model => model.GioiTinh)"></div>*@
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Số điện thoại</label><input name="sSDT" type="text" class="form-control" placeholder="Số điện thoại" value=""></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Căn cước công dân</label><input name="sCCCD" type="text" class="form-control" placeholder="Căn cước công dân" value=""></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Địa chỉ</label><input name="sDiaChi" type="text" class="form-control" placeholder="Địa chỉ" value=""></div>
+                                        </div>
+
+
+                                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Lưu thông tin</button></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center experience" style=" margin-bottom: -20px; "><span style="font-weight:700">Thông tin khác</span><span style="font-weight:700" class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Sở thích</span></div><br>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Mã ngành</label><input type="text" class="form-control" readonly placeholder="Mã Ngành" value="@Html.DisplayFor(model => model.Nganh)"></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Khoa</label><input type="text" class="form-control" readonly placeholder="Lớp" value="@Html.DisplayFor(model => model.MaKhoa)"></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Niên khóa</label><input type="text" class="form-control" readonly placeholder="Niên khóa" value="@Html.DisplayFor(model => model.TrinhDo)"></div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Thâm niên</label><input type="text" class="form-control" placeholder="8 Năm" value=""></div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.Thongbao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center">Danh Sách Thông Báo</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")
+</p>
+<div class="row">
+    <!-- column -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TenThongBao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NoiDungTb)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NgayGui)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NguoiNhan)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenThongBao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoiDungTb)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayGui)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NguoiNhan)
+                            </td>
+                            <td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btnwarning" role="button">Sửa</a>
+                                <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btndanger" role="button">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.Thongbao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutGiangVien.cshtml";
+}
+
+<style>
+    .expandable-table tr td {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    table, tr, td, th {
+        border: 1px solid #ddd;
+    }
+
+        table th {
+            text-align: center;
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        table tr td a {
+            color: #1a0000;
+            text-decoration: none;
+        }
+
+            table tr td a:link {
+                color: #1a0000;
+                text-decoration: none;
+            }
+</style>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title" style="text-align: center ;font-size:25px">Thông Báo Mới Nhất</p>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive" style="border: 1px solid #ddd;">
+                                <table id="example" class="display expandable-table">
+                                    <thead class="bg-light">
+                                        <tr style="font-size:23px">
+                                            <th>
+                                                @Html.DisplayName("Thông Báo Mới")
+
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayName("Ngày Gửi")
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href=" @Url.Action("DetailTB", "StudentDB", new { id = item.Id })">
+                                                    @Html.DisplayFor(modelItem => item.TenThongBao)
+
+                                                </a>
+                                            </td>
+
+                                            <td style="text-align:center">
+                                                @Html.DisplayFor(modelItem => item.NgayGui)
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

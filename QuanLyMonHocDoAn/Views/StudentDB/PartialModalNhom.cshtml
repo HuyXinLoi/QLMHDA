@@ -1,0 +1,87 @@
+﻿@*  @model IEnumerable<QuanLyMonHocDoAn.Models.Chitietnhom>  *@
+@using QuanLyMonHocDoAn.Models
+@{
+    var sv = ViewBag.account as Sinhvien;
+}
+
+
+
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
+            <i class="ti-close"></i>
+        </div>
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-list">
+                Thành Viên Nhóm
+            </i>
+        </header>
+        <div id="md-body" class="modal-body">
+            <div id="Nhom0" class="js-add">
+                <div class="col-md-5 col-2-Nhom">
+                    <label class="modal-label">
+                        <i class="ti-user"></i>
+                        Tên Sinh Viên
+                    </label>
+                    <input type="text" id="HoTen0" class="modal-input" value="@ViewBag.HOTEN" readonly>
+                </div>
+                <div class="col-md-5 col-2-Nhom">
+                    <label class="modal-label">
+                        <i class="ti-hand-point-right"></i>
+                        Mã Số Sinh Viên
+                    </label>
+                    <input type="text" id="MSSV0" class="modal-input" value="@ViewBag.MSSV" readonly>
+                </div>
+                <div class="col-2-Nhom btn-add-Nhom">
+                    <button style="padding: 12px;background: #79DCCE; border: none " type="button">
+                        <i style="color: #fff; padding: 12px 10px" class="ti-plus" id="btnAdd">
+                        </i>
+                    </button>
+                </div>
+                <div class="col-2-Nhom btn-add-Nhom">
+                    <button style="padding: 12px; background: red; border: none " type="button">
+                        <i style="color: #fff; padding: 12px 10px" class="ti-close" id="remove">
+                        </i>
+                    </button>
+                </div>
+            </div>
+            @* @{
+                if (Model != null)
+                {
+                    foreach (var tv in Model)
+                    {
+                        if (tv.MaSoSinhVien != sv.MaSoSinhVien)
+                        {
+
+                            <div id="Nhom0" class="js-add">
+                                <div class="col-md-5 col-2-Nhom">
+                                    <label class="modal-label">
+                                        <i class="ti-user"></i>
+                                        Tên Sinh Viên
+                                    </label>
+                                    <input type="text" id="HoTen0" class="modal-input" value="@tv.HoTen" readonly>
+                                </div>
+                                <div class="col-md-5 col-2-Nhom">
+                                    <label class="modal-label">
+                                        <i class="ti-hand-point-right"></i>
+                                        Mã Số Sinh Viên
+                                    </label>
+                                    <input type="text" id="MSSV0" class="modal-input" value="@tv.MaSoSinhVien" readonly>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                }
+
+            } *@
+        </div>
+        <button class="luu_nhom" id="btn-add" type="button">
+            LƯU
+            <i class="ti-check"></i>
+        </button>
+        <footer class="modal-footer">
+            <p class="modal-help">Cần <a href="">Hỗ trợ?</a> </p>
+        </footer>
+    </div>
+</div>

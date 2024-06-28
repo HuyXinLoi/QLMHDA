@@ -1,0 +1,6 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.Khoa>
+
+@foreach (var item in Model)
+{
+    <li class="nav-item"> <a class="nav-link" href="@Url.Action("DangKy","StudentDB")"> @item.TenKhoa  </a></li>
+}

@@ -1,0 +1,94 @@
+﻿<!-- partial:partials/_sidebar.html -->
+<link href="~/Theme/toast/css/toast.css" rel="stylesheet" />
+<script src="~/Theme/toast/js/js-toast.js"></script>
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            @* <a class="nav-link" href="@Url.Action("StudentDB","StudentDB")" aria-expanded="false" aria-controls="@Url.Action("StudentDB","StudentDB")"> *@
+            <a class="nav-link" asp-controller="StudentDB" asp-action="StudentDB">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Trang Chủ</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapse" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Đề Cương</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    @* @await Html.PartialAsync("StudentDB", "PartialDangKy") *@
+                      <partial name="PartialDangKy" />
+                     <li class="nav-item"> <a class="nav-link" asp-controller="TrangThaiDeTai" asp-action="StudentDetai" >Trạng Thái</a></li> 
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapse" data-toggle="collapse" href="#ui-detai" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Đề Tài</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-detai">
+                <ul class="nav flex-column sub-menu">
+                    @* <li class="nav-item"> <a class="nav-link" href="@Url.Action("DsDeTai","StudentDetai")">Trạng Thái</a></li> *@
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title">Xem Đánh Giá</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link"  asp-controller="StudentDB" asp-action="DSDanhGiaDC">Điểm Đề Cương </a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-controller="StudentDB" asp-action="DSDanhGiaDT">Điểm Đề Tài</a></li>
+                </ul>
+            </div>
+        </li>
+        @*<li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+        <i class="icon-bar-graph menu-icon"></i>
+        <span class="menu-title">danh sách đề tài</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+        <i class="icon-head menu-icon"></i>
+        <span class="menu-title">danh sách giảng viên</span>
+        <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+        <ul class="nav flex-column sub-menu">
+        @html.action("partialmenukhoa", "studentdb")
+        </ul>
+        </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="error">
+        <i class="icon-ban menu-icon"></i>
+        <span class="menu-title">sản phẩm sinh viên </span>
+        <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="error">
+        <ul class="nav flex-column sub-menu">
+        <li class="nav-item"> <a class="nav-link" href="#"> video tham khảo </a></li>
+        <li class="nav-item"> <a class="nav-link" href="#"> mẫu báo cáo </a></li>
+        </ul>
+        </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">
+        <i class="icon-paper menu-icon"></i>
+        <span class="menu-title">thư viện</span>
+        </a>
+        </li>*@
+    </ul>
+</nav>
+<!-- partial -->

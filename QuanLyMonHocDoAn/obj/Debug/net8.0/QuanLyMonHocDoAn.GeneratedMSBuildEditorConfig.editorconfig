@@ -1,0 +1,263 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = QuanLyMonHocDoAn
+build_property.RootNamespace = QuanLyMonHocDoAn
+build_property.ProjectDir = D:\.NET\QuanLyMonHocDoAn\QuanLyMonHocDoAn\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\.NET\QuanLyMonHocDoAn\QuanLyMonHocDoAn
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLAccount/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxBY2NvdW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLGiangVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxHaWFuZ1ZpZW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLSinhVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxTaW5oVmllblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLThongBao/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxUaG9uZ0Jhb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLThongBao/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxUaG9uZ0Jhb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLThongBao/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxUaG9uZ0Jhb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/QLThongBao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUUxUaG9uZ0Jhb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Areas/Admin/Views/Shared/_LayoutLoginAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbkFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/DsDeCuong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXERzRGVDdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/DsDeTaiNT.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXERzRGVUYWlOVC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/PartialMenuGiangVien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFBhcnRpYWxNZW51R2lhbmdWaWVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/PartialMenuu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFBhcnRpYWxNZW51dS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/PartialNavGV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFBhcnRpYWxOYXZHVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/PartialNavv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFBhcnRpYWxOYXZ2LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/PartialTBChamLai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFBhcnRpYWxUQkNoYW1MYWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/GiangVien/ProfileGV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhbmdWaWVuXFByb2ZpbGVHVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/_LayoutDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/_LayoutGIangVien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRHSWFuZ1ZpZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/_LayoutUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/DangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXERhbmdLeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/DetailTB.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXERldGFpbFRCLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/DSDanhGiaDC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXERTRGFuaEdpYURDLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/DSDanhGiaDT.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXERTRGFuaEdpYURULmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/DsDeTai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXERzRGVUYWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialDangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxEYW5nS3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialdangkyy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxkYW5na3l5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialFormNhom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxGb3JtTmhvbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialformnhomm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxmb3JtbmhvbW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialMenuKhoa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxNZW51S2hvYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialmenukhoaa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxtZW51a2hvYWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialmenuu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxtZW51dS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialModalNhom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxNb2RhbE5ob20uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialmodalnhomm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxtb2RhbG5ob21tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/PartialNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxOYXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/Partialnavv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFBhcnRpYWxuYXZ2LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/ProfileSV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFByb2ZpbGVTVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/StudentDB.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFN0dWRlbnREQi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/TrangThaiDeTai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXFRyYW5nVGhhaURlVGFpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/StudentDB/_PartialProgressBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudERCXF9QYXJ0aWFsUHJvZ3Jlc3NCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcQ29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/ParialFooter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcUGFyaWFsRm9vdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/PartialNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcUGFydGlhbE5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/ThongBao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcVGhvbmdCYW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/TinTuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcVGluVHVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/TrangChu/TrangChu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmdDaHVcVHJhbmdDaHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.NET/QuanLyMonHocDoAn/QuanLyMonHocDoAn/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-0517uyn4qy

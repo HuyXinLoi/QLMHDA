@@ -1,0 +1,31 @@
+﻿@model QuanLyMonHocDoAn.Models.Thongbao
+
+@{
+    ViewBag.Title = "DetailTB";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<br />
+<br />
+<br />
+<div class="content-wrapper">
+    <div>
+        <h4>Thông Báo : @Html.DisplayFor(model => model.NgayGui)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayFor(model => model.TenThongBao)
+            </dt>
+            <dd>
+            </dd>
+            <dd>
+            </dd>
+        </dl>
+        <div>
+            <p> @Html.DisplayFor(model => model.NoiDungTb)</p>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Trở Về", "StudentDB", "StudentDB")
+    </p>
+</div>
+

@@ -1,0 +1,105 @@
+﻿@model QuanLyMonHocDoAn.Models.Thongbao
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Thêm Thông Báo</h2>
+<style>
+    /* Set background color for the whole page */
+    body {
+        background-color: #f1f1f1;
+    }
+
+    /* Style the heading */
+    h2 {
+        color: #333;
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Style the form */
+    .form-horizontal {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #ccc;
+        margin-bottom: 30px;
+    }
+
+    /* Style the form labels */
+    .control-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Style the form inputs */
+    .form-control {
+        border: none;
+        border-radius: 0px;
+        border-bottom: 2px solid #ccc;
+        box-shadow: none;
+    }
+
+    /* Style the form submit button */
+    .btn-default {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn-default:hover {
+            background-color: #555;
+        }
+
+    /* Style the link to go back to the list */
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenThongBao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenThongBao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenThongBao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoiDungTb, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoiDungTb, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoiDungTb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>

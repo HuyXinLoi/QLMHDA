@@ -1,0 +1,549 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.DTDeTai>
+@using QuanLyMonHocDoAn.Models
+@{
+    Sinhvien sv = ViewBag.account as Sinhvien;
+    ViewBag.Title = "DsDeTai";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<link href="~/Theme/Load/loader.css" rel="stylesheet" />
+<style>
+    #txtLink:hover {
+        border: 1px solid #6bacb2;
+        cursor: pointer;
+    }
+
+    @@media(max-width:46.1875em) {
+        #myDiv {
+            width: 100%;
+        }
+
+        #the-canvas {
+            width: 100%;
+        }
+
+        .modal-lg {
+            width: 100%;
+        }
+    }
+</style>
+<div class="mdl" style="display:none">
+    <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+<script src="~/Theme/pdf/pdf.js"></script>
+<script src="~/Theme/pdf/pdf.worker.js"></script>
+<link href="~/Theme/step/css/main.css" rel="stylesheet" />
+<script src="~/Theme/step/js/progress-bar.js"></script>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="text-align:center">Trạng Thái Đề Tài</h2>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table" id="myTable">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th style="display:none">
+                                                @Html.DisplayNameFor(model => model.MaDeTai)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TenDeTai)
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TenGiangVien)
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NgayThucHien)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NgayKetThuc)
+                                            </th>
+
+                                            <th>Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                    @{
+                                        int ia = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        ia = ia + 1;
+                                        <tr id="@item.MaDeTai">
+                                            <td style="display:none">
+                                                <input id="A_@item.MaDeTai" value="@ia" type="text" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenDeTai)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenGiangVien)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NgayThucHien)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+                                            </td>
+
+                                            <td>
+                                                <button class="btn btn-sm btn-warning" name="viewDt" style="color:black"><i class="fa-solid fa-circle-info" style="color:red"></i> Chi Tiết</button>&nbsp
+                                                @if (item.MaHoiDong == 4)
+                                                {
+                                                    <button type="button" class="btn btn-primary" style="pointer-events:none" data-toggle="modal" id="uploadfile">Chỉnh Sửa Đề Cương</button>
+                                                }
+                                                else
+                                                {
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" id="uploadfile">Chỉnh Sửa Đề Cương</button>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal fade bd-example-modal-lg" id="modalDeTai" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="card-body">
+                                    <h3 style="font-weight:700;text-align:center;" class="modal-title" id="modalTitle"></h3>
+                                </div>
+                                <div class="progress-bar-wrapper">
+                                    <div class="status-bar" style="width: 80%;">
+                                        <div class="current-status" style="width: 0%; transition: width 4500ms linear 0s;">
+                                        </div>
+                                    </div>
+                                    <ul class="progress-barstep">
+                                        @for (int i = 1; i <= TrangThaiViewModel.Instance.trangThai.Count() - 1; i++)
+                                        {
+                                            if (i <= ViewBag.TTDT)
+                                            {
+                                                <li class="section visited current" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+                                            }
+                                            else
+                                            {
+                                                <li class="section" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+                                            }
+
+                                        }
+
+
+                                    </ul>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td hidden>
+                                                <input type="text" value="" hidden />
+                                            </td>
+                                            <td>
+                                                <label>Tên Đề Tài:</label>
+                                                <input type="text" class="form-control" id="txtTenDT" />
+                                            </td>
+                                            <td>
+                                                <label>Tên Hội Đồng:</label>
+                                                <input type="text" class="form-control" id="txtTenHD" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Sinh Viên Thực Hiện:</label>
+                                                <input type="text" class="form-control" id="txtTenSV" />
+                                            </td>
+                                            <td>
+                                                <label>Mã Só Sinh Viên:</label>
+                                                <input type="text" class="form-control" id="txtMaSV" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade bd-example-modal-lg" id="modalDeTai1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="card-body">
+                                    <h3 style="font-weight:700;text-align:center;" class="modal-title" id="modalTitle1"></h3>
+                                </div>
+                                <div class="progress-bar-wrapper">
+                                    <div class="status-bar" style="width: 80%;">
+                                        <div class="current-status" style="width: 0%; transition: width 4500ms linear 0s;">
+                                        </div>
+                                    </div>
+                                    <ul class="progress-barstep">
+                                        @for (int i = 1; i <= TrangThaiViewModel.Instance.trangThai.Count() - 1; i++)
+                                        {
+                                            if (i <= 5)
+                                            {
+                                                <li class="section visited current" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+                                            }
+                                            else
+                                            {
+                                                <li class="section" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+                                            }
+
+                                        }
+
+                                    </ul>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td hidden>
+                                                <input type="text" value="" hidden />
+                                            </td>
+                                            <td>
+                                                <label>Tên Đề Tài:</label>
+                                                <input type="text" class="form-control" id="txtTenDT1" />
+                                            </td>
+                                            <td>
+                                                <label>Tên Hội Đồng:</label>
+                                                <input type="text" class="form-control" id="txtTenHD1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Sinh Viên Thực Hiện:</label>
+                                                <input type="text" class="form-control" id="txtTenSV1" />
+                                            </td>
+                                            <td>
+                                                <label>Mã Só Sinh Viên:</label>
+                                                <input type="text" class="form-control" id="txtMaSV1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            @*<td>
+                                            <label>Đề Cương:</label>
+                                            <input type="text" class="form-control" id="txtLink1" />
+                                            </td>*@
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="modalpdf" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div style="border: 1px solid blue;text-align:center;" id="myDiv" tabindex="0">
+                <canvas id="the-canvas" style="text-align: center"></canvas>
+                <br style="height:1px;" />
+                <img src="~/Theme/images/chevron-left-solid.svg" id="prev" width="15" height="15" />
+                &nbsp;
+                <span><span id="page_num"></span> - <span id="page_count"></span></span>&nbsp;
+                <img src="~/Theme/images/chevron-right-solid.svg" id="next" width="15" height="15" />
+                <img src="~/Theme/images/fullscreen.png" id="fullscreen" width="15" height="15" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="uploadModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Pakainfo Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">File Đề Cương</h4>
+            </div>
+            <div class="gst modal-body">
+                <!-- Pakainfo Form -->
+                <form method='post' action='' enctype="multipart/form-data">
+                    Chọn File: <input type='file' name='file' id='file' multiple class='pakainfo form-control'><br>
+                    <input type='button' class='pakainfo btn btn-primary' value='Upload' id='flupload' style="pointer-events:none;opacity:0.5;float:right">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).on('click', "button[name='viewDt']", function () {
+        let id = $(this).closest('tr').attr('id');
+        if ($('#A_' + id).val() > 1) {
+            $.ajax({
+                url: '/StudentDB/DetailDTNT',
+                type: 'get',
+                data: {
+                    idDT: id
+                },
+                success: function (data) {
+                    if (data.code == 200 && data.dt != null) {
+                        $('#txtTenDT1').val(data.dt.TenDT);
+                        $('#txtTenDT1').prop("readonly", true);
+                        $('#txtTenSV1').val(data.dt.TenSV);
+                        $('#txtTenSV1').prop("readonly", true);
+                        $('#txtMaSV1').val(data.dt.MaSV);
+                        $('#txtMaSV1').prop("readonly", true);
+                        $('#txtTenHD1').val(data.dt.TenHD);
+                        $('#txtTenHD1').prop("readonly", true);
+                        $('#txtTenTT1').val(data.dt.TenTT);
+                        $('#txtTenTT1').prop("readonly", true);
+                        $('#txtLink1').val(data.dt.LinkDT);
+                        $('#txtLink1').prop("readonly", true);
+                        $('#modalTitle1').text('Xem chi tiết Đề Tài');
+                        $('#modalDeTai1').modal();
+                    }
+                    else {
+                        alert(data.msg);
+                    }
+                }
+            })
+        } else {
+            $.ajax({
+                url: '/StudentDB/DetailDTNT',
+                type: 'get',
+                data: {
+                    idDT: id
+                },
+                success: function (data) {
+                    if (data.code == 200 && data.dt != null) {
+
+                        $('#txtTenDT').val(data.dt.TenDT);
+                        $('#txtTenDT').prop("readonly", true);
+                        $('#txtTenSV').val(data.dt.TenSV);
+                        $('#txtTenSV').prop("readonly", true);
+                        $('#txtMaSV').val(data.dt.MaSV);
+                        $('#txtMaSV').prop("readonly", true);
+                        $('#txtTenHD').val(data.dt.TenHD);
+                        $('#txtTenHD').prop("readonly", true);
+                        $('#txtTenTT').val(data.dt.TenTT);
+                        $('#txtTenTT').prop("readonly", true);
+                        $('#txtLink').val(data.dt.LinkDT);
+                        $('#txtLink').prop("readonly", true);
+                        $('#modalTitle').text('Xem chi tiết Đề Tài');
+                        $('#modalDeTai').modal();
+                    }
+                    else {
+
+                        alert(data.msg);
+                    }
+                }
+            })
+        }
+
+
+
+    });
+
+</script>
+<script>
+    $("#flupload").click(function () {
+        if ($('#file').val() != "") {
+            $('.mdl').css("display", "block");
+        }
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("input:file").change(function () {
+            var file = $('#file').val()
+            if (file != "") {
+                $('#flupload').css('pointer-events', 'unset')
+                $('#flupload').css('opacity', '1')
+            }
+        })
+    })
+
+
+    $('#txtLink').click(function () {
+        let link = $('#txtLink').val().trim();
+        $('#modalpdf').modal();
+
+        //Đường dẫn file PDF
+        var url = '/Theme/Luufile/' + link;
+
+        //Các hàm định nghĩa sẵn trong thư viện PDF.js
+        var pdfjsLib = window['pdfjs-dist/build/pdf'];
+        var pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.0,
+            canvas = document.getElementById('the-canvas'),
+            ctx = canvas.getContext('2d');
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function (page) {
+                var viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                var renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+            document.getElementById('page_num').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                //return;
+                pageNum = 0;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page_count').textContent = pdfDoc.numPages;
+            renderPage(pageNum);
+        });
+
+
+
+        /////////Mình tự viết tay customize
+
+        //Sự kiện nhấn vào hình prev
+        document.getElementById('prev').addEventListener('click', onPrevPage);
+        //Sự kiện nhấn vào hình next
+        document.getElementById('next').addEventListener('click', onNextPage);
+        //Sự kiện nhấn vào hình fullscreen
+        document.getElementById('fullscreen').addEventListener("click", fullscreen);
+        //Sự kiện click chuột trong the-canvas
+        document.getElementById('the-canvas').addEventListener("click", onNextPage);
+
+
+        //Hàm javascript tự viết khi click vào the-canvas thì showfull màn hình
+        function fullscreen() {
+            var el = document.getElementById('the-canvas');
+            if (el.webkitRequestFullScreen) {
+                el.webkitRequestFullScreen();
+            }
+            else {
+                el.mozRequestFullScreen();
+            }
+        }
+
+        //Hàm xử lý các sự kiện bàn phím khi nhấn phím Up,Down,Left,Right
+        document.querySelector('#myDiv').addEventListener('keydown', function (e) {
+            //if (event.key === "ArrowDown") {
+            //    onNextPage();
+            //}
+            //if (event.key === "ArrowUp") {
+            //    onPrevPage();
+            //}
+            if (event.key === "ArrowLeft") {
+                onPrevPage();
+            }
+            if (event.key === "ArrowRight") {
+                onNextPage();
+            }
+        })
+    });
+    $('#uploadfile').click(function () {
+        let id = $(this).closest('tr').attr('id');
+        $("#uploadModal").modal();
+        $('#flupload').click(function () {
+            $('#uploadModal').modal('hide');
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#file").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append("iddt", id);
+
+                $.ajax({
+                    url: '/StudentDetai/UploadFilesDeTai',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data:
+                        fileData,
+                    success: function (result) {
+                        showInfoToastLuufile()
+                        setTimeout(function () { location.reload() }, 700);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+
+
+    function showInfoToastLuufile() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Nộp file thành công',
+            type: 'success',
+            duration: 1500
+        });
+    }
+</script>
+
+
+

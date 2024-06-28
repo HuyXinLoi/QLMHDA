@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>HUTECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    @* @Styles.Render("~/TrangChu/css") *@
+    <link href="~/css/TrangChu/style.css" rel="stylesheet"/>
+    <link rel="icon" href="~/images/logo.png" />
+</head>
+<body>
+     @* @Url.Action("PartialNav", "TrangChu") *@
+    <style>
+        #menu a:link {
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
+    <header id="header">
+        <div class="container">
+            <a href="@Url.Action("TrangChu","TrangChu")" id="logo" title="HUTECH">
+               HUTECH
+            </a>
+            <div class="menu-trigger"></div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="@Url.Action("TrangChu","TrangChu")">Trang chủ</a></li>
+                    <li><a href="@Url.Action("About","TrangChu")">Giới thiệu</a></li>
+                    <li><a href="@Url.Action("TinTuc","TrangChu")">Tin tức</a></li>
+                </ul>
+                <ul>
+                    <li><a href="@Url.Action("ThongBao","TrangChu")">Thông báo</a></li>
+                    <li><a href="@Url.Action("Contact","TrangChu")">Liên hệ</a></li>
+                    <li><a href="@Url.Action("Login","User")">Đăng ký đề tài</a></li>
+                </ul>
+            </nav>
+            <!-- / navigation -->
+        </div>
+        <!-- / container -->
+
+    </header>
+    
+    @RenderBody()
+    <footer id="footer">
+        <div class="container">
+            <section>
+                <article class="col-1">
+                    <h3>Địa Chỉ & Hotline</h3>
+                    <ul>
+                        <li class="address"><a href="#">Khu Công nghệ cao Xa Lộ Hà Nội, Hiệp Phú, <br>Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam</a></li>
+                        <li class="mail"><a href="#">huetch@edu.com.vn</a></li>
+                        <li class="phone last"><a href="#">0123498765 <br> 029948397413 <br> 0123498765</a></li>
+                    </ul>
+                </article>
+                <article class="col-2">
+                    <h3>Đảng - Đoàn Thể</h3>
+                    <ul>
+                        <li><a href="#">Đảng ủy</a></li>
+                        <li><a href="#">Công đoàn - Ban liên lạc cựu giáo chức</a></li>
+                        <li><a href="#">Đoàn Thanh niên - Hội Sinh viên</a></li>
+                        <li><a href="#">Công tác đoàn </a></li>
+                    </ul>
+                </article>
+                <article class="col-3">
+                    <h3>Mạng Xã Hội</h3>
+                    <p>Kết Nối Với Chúng Tôi</p>
+                    <ul>
+                        <li class="facebook"><a href="http://www.facebook.com/dinhhuy0810">Facebook</a></li>
+                        <li class="google-plus"><a href="http://www.facebook.com/dinhhuy0810">Google+</a></li>
+                        <li class="twitter"><a href="http://www.facebook.com/dinhhuy0810">Twitter</a></li>
+                        <li class="pinterest"><a href="http://www.facebook.com/dinhhuy0810">Pinterest</a></li>
+                    </ul>
+                </article>
+                <article class="col-4">
+                    <h3>Liên Hệ</h3>
+                    <p>
+                        Để Lại Email Của Bạn
+                    </p>
+                    <form action="#">
+                        <input placeholder="Email address..." type="text">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <ul>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </article>
+            </section>
+            <p class="copy">Copyright 2022 HUTECH. Designed by <a href="http://www.facebook.com/dinhhuy0810" title="Designed by HUTECH" target="_blank">HUTECH</a>. All rights reserved.</p>
+        </div>
+        <!-- / container -->
+    </footer>
+
+    @* @Url.Action("PartialFooter", "TrangChu") *@
+
+    <!-- / footer -->
+    @*<div id="fancy">
+    <h2>Request information</h2>
+    <form action="#">
+    <div class="left">
+    <fieldset class="mail"><input placeholder="Email address..." type="text"></fieldset>
+    <fieldset class="name"><input placeholder="Name..." type="text"></fieldset>
+    <fieldset class="subject"><select><option>Choose subject...</option><option>Choose subject...</option><option>Choose subject...</option></select></fieldset>
+    </div>
+    <div class="right">
+    <fieldset class="question"><textarea placeholder="Question..."></textarea></fieldset>
+    </div>
+    <div class="btn-holder">
+    <button class="btn blue" type="submit">Send request</button>
+    </div>
+    </form>
+    </div>*@
+    <script src="~/js/TrangChu/jquery-1.11.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/TrangChu/main.js" asp-append-version="true"></script>
+    <script src="~/js/TrangChu/plugins.js" asp-append-version="true"></script>
+</body>
+</html>

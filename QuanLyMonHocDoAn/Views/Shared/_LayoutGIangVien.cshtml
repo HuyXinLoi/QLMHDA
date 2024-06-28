@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giảng Viên</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/Theme/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/Theme/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Theme/vendors/css/vendor.bundle.base.css">
+    @* Link datable *@
+    <link href="~/Theme/Table/css/datatables.css" rel="stylesheet" />
+    <link href="~/Theme/Table/css/datatables.min.css" rel="stylesheet" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="~/js/jquery-3.4.1.js"></script>
+    @*<link rel="stylesheet" href="~/Theme/vendors/datatables.net-bs4/dataTables.bootstrap4.css">*@
+    <link rel="stylesheet" href="~/Theme/vendors/ti-icons/css/themify-icons.css">
+    <link href="~/Theme/css/vertical-layout-light/layoutQL1.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="~/Theme/js/select.dataTables.min.css">*@
+    <link rel="shortcut icon" href="~/Theme/images/favicon.png" />
+    <script src="~/Theme/ckeditor/ckeditor.js"></script>
+    <script src="~/Theme/toast/js/js-toast.js"></script>
+    <link href="~/Theme/toast/css/toast.css" rel="stylesheet" />
+    <link rel="icon" href="~/Theme/images/tdmu-icon-ldpi.png" />
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container-scroller">
+        @* @await Html.PartialAsync("PartialNavGV", "GiangVien")  *@
+        @{
+          
+            Html.RenderPartial("PartialNavv");
+        }
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-sidebar" class="settings-panel">
+                <i class="settings-close ti-close"></i>
+
+                @*<div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+                <div class="add-items d-flex px-3 mb-0">
+                <form class="form w-100">
+                <div class="form-group d-flex">
+                <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+                </form>
+                </div>
+                <div class="list-wrapper px-3">
+                <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="checkbox" type="checkbox">
+                Team review meeting at 3.00 PM
+                </label>
+                </div>
+                <i class="remove ti-close"></i>
+                </li>
+                <li>
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="checkbox" type="checkbox">
+                Prepare for presentation
+                </label>
+                </div>
+                <i class="remove ti-close"></i>
+                </li>
+                <li>
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="checkbox" type="checkbox">
+                Resolve all the low priority tickets due today
+                </label>
+                </div>
+                <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="checkbox" type="checkbox" checked>
+                Schedule meeting for next week
+                </label>
+                </div>
+                <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="checkbox" type="checkbox" checked>
+                Project review
+                </label>
+                </div>
+                <i class="remove ti-close"></i>
+                </li>
+                </ul>
+                </div>
+                <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Events</h4>
+                <div class="events pt-4 px-3">
+                <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 11 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+                <p class="text-gray mb-0">The total number of sessions</p>
+                </div>
+                <div class="events pt-4 px-3">
+                <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 7 2018</span>
+                </div>
+                <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+                <p class="text-gray mb-0 ">Call Sarah Graves</p>
+                </div>
+                </div>*@
+
+                <!-- To do section tab ends -->
+                @* @await Html.PartialAsync("PartialTBChamLai", "GiangVien") *@
+
+                <!-- chat tab ends -->
+
+            </div>
+            <!-- partial -->
+            @* @await Html.PartialAsync("PartialMenuGiangVien", "GiangVien") *@
+            @{
+                Html.RenderPartial("PartialMenuu");
+            }
+            <div class="main-panel">
+                @RenderBody()
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+
+        </div>
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                <span style="  margin-right: 20px; " class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with<i class="ti-heart text-danger ml-1"></i></span>
+            </div>
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+            </div>
+            @RenderSection("ModalQL", required: false)
+        </footer>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    @*<script src="~/Theme/Table/js/datatables.js"></script>*@
+    <script src="~/Theme/Table/js/datatables1.min.js"></script>
+    <!-- plugins:js -->
+    <script src="~/Theme/vendors/js/vendor.bundle.base1.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="~/Theme/vendors/chart.js/Chart.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/Theme/js/off-canvas.js"></script>
+    <script src="~/Theme/js/hoverable-collapse.js"></script>
+    <script src="~/Theme/js/template.js"></script>
+    <script src="~/Theme/js/settings.js"></script>
+    <script src="~/Theme/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/Theme/js/dashboard.js"></script>
+    <script src="~/Theme/js/Chart.roundedBarCharts.js"></script>
+    <!-- End custom js for this page-->
+</body>
+</html>
+
+

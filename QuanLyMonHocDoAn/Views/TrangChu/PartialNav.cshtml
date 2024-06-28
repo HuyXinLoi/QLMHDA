@@ -1,0 +1,28 @@
+﻿<style>
+    #menu a:link {
+        text-decoration: none;
+        font-size: 20px;
+    }
+</style>
+<header id="header">
+    <div class="container">
+        <a href="@Url.Action("TrangChu","TrangChu")" id="logo" title="TDMU">TDMU</a>
+        <div class="menu-trigger"></div>
+        <nav id="menu">
+            <ul>
+                <li><a href="@Url.Action("TrangChu","TrangChu")">Trang chủ</a></li>
+                <li><a href="@Url.Action("About","TrangChu")">Giới thiệu</a></li>
+                <li><a href="@Url.Action("TinTuc","TrangChu")">Tin tức</a></li>
+            </ul>
+            <ul>
+                <li><a href="@Url.Action("ThongBao","TrangChu")">Thông báo</a></li>
+                <li><a href="@Url.Action("Contact","TrangChu")">Liên hệ</a></li>
+                <li><a href="@Url.Action("Login","User")">Đăng ký đề tài</a></li>
+            </ul>
+        </nav>
+        <!-- / navigation -->
+    </div>
+    <!-- / container -->
+
+</header>
+<!-- / header -->

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giảng Viên</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/Theme/vendors/feather/feather.css">
+    <link rel="stylesheet" href="/Theme/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/Theme/vendors/css/vendor.bundle.base.css">
+    
+    <link href="/Theme/Table/css/datatables.css" rel="stylesheet" />
+    <link href="/Theme/Table/css/datatables.min.css" rel="stylesheet" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    
+    <link rel="stylesheet" href="/Theme/vendors/ti-icons/css/themify-icons.css">
+    <link href="/Theme/css/vertical-layout-light/layoutQL1.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="/Theme/images/favicon.png" />
+    <script src="/Theme/ckeditor/ckeditor.js"></script>
+    <script src="/Theme/toast/js/js-toast.js"></script>
+    <link href="/Theme/toast/css/toast.css" rel="stylesheet" />
+    <link rel="icon" href="/Theme/images/tdmu-icon-ldpi.png" />
+   <style>
+      
+   </style>
+</head>
+<body>
+    <div class="container-scroller">
+                <!-- partial:partials/_navbar.html -->
+
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="/"><img src="/Theme/images/tmdu3.png" class="mr-2" alt="logo" /></a>
+
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="navbar-search-input" placeholder="Tìm từ khóa" aria-label="search" aria-describedby="search">
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                    <i class="icon-bell mx-0"></i>
+                    <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-success">
+                                <i class="ti-info-alt mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                Just now
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="ti-settings mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Settings</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                Private message
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-info">
+                                <i class="ti-user mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                2 days ago
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                    Ho&#224;ng Văn Thụ &ensp;
+                    <img src="/Theme/images/iconAcc.png" alt="profile" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="/GiangVien/ProfileGV">
+                        <i class="ti-settings text-primary"></i>
+                        Thông Tin Tài Khoản
+                    </a>
+                    <a class="dropdown-item" href="/StudentDB/Logout">
+                        <i class="ti-power-off text-primary"></i>
+                        Đăng Xuất
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item nav-settings d-none d-lg-flex">
+                <a class="nav-link" href="#">
+                    <i class="icon-ellipsis"></i>
+                </a>
+            </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+        </button>
+    </div>
+</nav>
+<!-- partial -->
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-sidebar" class="settings-panel">
+                <i class="settings-close ti-close"></i>
+         
+                    
+
+                    <!-- To do section tab ends -->
+                    <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+    
+    <li class="nav-item">
+        <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section" aria-expanded="true" aria-selected="true">Thông Báo Chấm Lại (2)</a>
+    </li>
+</ul>
+<div class="tab-content" id="setting-content">
+    <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+        <!--<div class="d-flex align-items-center justify-content-between border-bottom">-->
+            
+        <!--</div>-->
+        <ul class="chat-list">
+                        <li class="list active">
+                                        <a href="/GiangVien/ThongBaoToDs/11" style="display:flex;width:80%; text-decoration:none">
+                                                <div class="profile"><img src="/Theme/images/iconMail.png" alt="image"><span class="online" ></span></div>
+                                            <div class="info">
+                                                <p>X&#226;y dựng website Cạo Mủ cao su</p>
+                                                <p>Đ&#227; Đọc</p>
+                                            </div>
+                                        </a>
+<small class="text-muted my-auto">362 ng&#224;y 4 giờ</small>
+
+                        </li>
+                        <li class="list active">
+                                        <a href="/GiangVien/ThongBaoToDs/2" style="display:flex;width:80%; text-decoration:none">
+                                                <div class="profile"><img src="/Theme/images/iconMail.png" alt="image"><span class="online" style="background: #EE0000; "></span></div>
+                                            <div class="info">
+                                                <p>Đề T&#224;i Mo phỏng Ăn Uống 3</p>
+                                                <p>Chưa Đọc</p>
+                                            </div>
+                                        </a>
+<small class="text-muted my-auto">394 ng&#224;y 23 giờ</small>
+
+                        </li>
+
+
+            
+        </ul>
+    </div>
+</div>
+                   
+                    <!-- chat tab ends -->
+                
+            </div>
+            <!-- partial -->
+            
+
+
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar" style="width:258px">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/GiangVien/Index" aria-expanded="false" aria-controls="/GiangVien/Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Trang Chủ</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapse" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Danh Sách Đề Tài</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/GiangVien/DsDeCuong">Chấm điểm đề cương</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/GiangVien/DsDeTaiNT">Chấm điểm đề tài </a></li>
+                </ul>
+            </div>
+        </li>
+        
+    </ul>
+</nav>
+<!-- partial -->
+
+            <div class="main-panel">
+                
+
+<style>
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 0.875rem;
+        resize: none;
+    }
+
+    .badge-color {
+        background-color: #d6f0e0;
+        color: #0d6832;
+    }
+
+    .tb_two {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+    });
+</script>
+<div class="content-wrapper">
+    <div id="toast">
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="text-align:center">Chấm Điểm Đề Tài</h2>
+                    <br />
+                    <br />
+                    <div class="tb_two">
+                        <div>
+<form action="/GiangVien/DsDeTaiNT" class="form-inline" method="get">                                <span style="margin-left:10px">Từ Ngày: </span>
+                                <input style="height:32px" type="date" name="strLoc1" id="strLocjs1" />
+                                <spans style="margin-left:10px">Đến Ngày: </spans>
+                                <input style="height:32px" type="date" name="strLoc2" id="strLocjs2" />
+                                <button type="submit" class="btn btn-sm btn-info" id="Loc" style="border-radius: unset; margin-left: 10px;height:32px"><i class="fa-solid fa-list-check"></i> Lọc</button>
+</form>                        </div>
+                        <div>
+                            <h4 style="color:red">(*) Vui lòng nhập điểm trước khi nộp minh chứng !</h4>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table" id="mytable">
+                                    <thead class="bg-light">
+                                        <tr style="text-align:center">
+                                            <th>
+                                                T&#234;n Đề T&#224;i
+                                            </th>
+                                            <th>
+                                                M&#227; Số Sinh Vi&#234;n
+                                            </th>
+
+                                            <th>
+                                                Trạng Th&#225;i
+                                            </th>
+                                            <th>
+                                                TenHoiDong
+                                            </th>
+                                            
+                                            <th style="text-align:center">Hành Động</th>
+
+                                        </tr>
+                                    </thead>
+                                        <tr id="18">
+                                            <td>
+                                                XINCHAOOOO
+                                            </td>
+                                            <td>
+                                                2024802010439
+                                            </td>
+
+                                            <td>
+                                                <span class="badge badge-color rounded-pill d-inline">
+                                                    Đang chờ nghiệm thu
+                                                </span>
+                                            </td>
+                                            <td>
+                                                Hội Đồng 4
+                                            </td>
+                                            
+                                            <td style="text-align:center">
+                                                    <button class="btn btn-sm btn-info" name="ChamDiem"><i class="fa-solid fa-list-check"></i> Chấm Điểm</button>&nbsp
+                                                    <button style="color:white" class="btn btn-sm btn-warning" name="MinhChung"><i class="fa-solid fa-list-check"></i> Minh Chứng</button>&nbsp
+
+                                            </td>
+                                        </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade " id="modalCTChamDiem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="title"></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 style="text-align:center">Thông tin đề cương</h3>
+                        <div class="form-group">
+                            <label>Tên Đề Tài: </label>
+                            <input class="form-control" id="TenDT">
+                        </div>
+                        <div class="form-group">
+                            <label>Ghi Chú: </label>
+                            <input class="form-control" id="GhiChu">
+                        </div>
+                        <div>
+                            <label>File1: </label>
+                            <a href="#" class="form-control" id="link1" readonly style="text-align: center; text-decoration-line: none">Tải xuống</a>
+                            <br />
+                            <label>File2: </label>
+                            <a href="#" class="form-control" id="link2" readonly style="text-align:center;text-decoration-line:none">Tải xuống</a>
+                        </div>
+
+                        <input type="text" value="" class="form-control" id="Link" name="getfile" style="display:none">
+
+                    </div>
+                    <div id="TTDiem" class="col-6">
+                        <h3 style="text-align:center">Phiếu Điểm</h3>
+                        <div class="form-group">
+                            <label>Điểm: </label>
+                            <input type="number" min="0" max="10" value="0" class="form-control" id="Diem">
+                        </div>
+                        <div class="form-group">
+                            <label>Đánh Giá: </label>
+                            <textarea id="ĐanhGia"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style=" margin-left: 25px; margin-bottom: 40px;">
+                <button type="submit" id="btn_Luu" class="btn btn-success">Lưu Điểm</button>
+                <button type="button" class="btn btn-secondary cls" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="Upminhchung" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="text-align:center">Minh Chứng</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="file" class="form-control" name="fFileUpload" id="minhchungfile">
+                    <br />
+                    <input type="button" class="btn btn-primary" value="Upload" id="upfile" style="pointer-events:none;opacity:0.5;float:right">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+
+    $('#link1').click(function () {
+        var a = $("a");
+        a.attr("download", $('#link1').val())
+        $("body"), apend(a);
+
+            /*location.href = '../Theme/Luufile/' + $('#link1').val();*/
+
+        })
+    $('#link2').click(function () {
+
+        var a = $("a");
+        a.attr("download", $('#link2').val())
+        $("body"), apend(a);
+    })
+
+
+
+
+
+    $(document).ready(function () {
+        $("input:file").change(function () {
+            var file = $('#minhchungfile').val()
+            if (file != "") {
+                $('#upfile').css('pointer-events', 'unset')
+                $('#upfile').css('opacity', '1')
+            }
+        })
+    })
+
+    $(document).on("click", ".cls", function () {
+        location.reload();
+    })
+    $(document).on("click", ".close", function () {
+        location.reload();
+    })
+
+    $(document).on("click", "button[name='MinhChung']", function () {
+        $("#Upminhchung").modal();
+        let id = $(this).closest('tr').attr('id');
+        $('#upfile').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#minhchungfile").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('iddk', id);
+
+                $.ajax({
+                    url: '/GiangVien/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data:
+                        fileData,
+                    success: function (result) {
+                        if (result.code == 200) {
+                            showInfoToastLuufile()
+                            setTimeout(function () { location.reload() }, 700);
+                        }
+                        else {
+                            showInfoToastcheckfile();
+                        }
+
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    })
+
+    $(document).on("click", "button[name='ChamDiem']", function () {
+        $("#modalCTChamDiem").modal();
+        let id = $(this).closest('tr').attr('id');
+        $.ajax({
+            url: '/GiangVien/TTDeTaiNT',
+            type: 'get',
+            cache: false,
+            contentType: false,
+            data: {
+                idDT: id
+            },
+            success: function (data) {
+                if (data.code == 200) {
+                    $('#TenDT').val(data.dt.TenDeTai);
+                    $('#TenDT').prop("readonly", true);
+                    $('#GhiChu').val(data.dt.GhiChu);
+                    $('#GhiChu').prop("readonly", true);
+                    $('#Link').val(data.dt.LinkDeTai);
+                    $('#Link').prop("readonly", true);
+                    var t = $('#Link').val().split('\\');
+                    $('#link1').val(t[0]);
+                    $('#link2').val(t[1]);
+                }
+                else {
+                    alert(data.msg);
+                }
+            }
+
+        })
+
+        $('#btn_Luu').click(function () {
+            var checkdiem = $('#Diem').val();
+            var checkdanhgia = $('#ĐanhGia').val();
+            if (checkdanhgia === "") {
+                showInfoToastcheckthongtin();
+            }
+            else if (checkdanhgia != "" && (checkdiem < 0 || checkdiem > 10)) {
+                showInfoToastcheckdiem();
+            }
+            else {
+                $.ajax({
+                    url: '/GiangVien/BienBanChamDeTai',
+                    type: 'post',
+                    data: {
+                        iddt: id,
+                        diem: checkdiem,
+                        danhgia: checkdanhgia
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            showInfoToastLuuDiem();
+                            setTimeout(function () { location.reload() }, 700);
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (error) {
+                        alert("Loi");
+                    }
+                })
+            }
+        })
+
+    });
+
+    function showInfoToastLuufile() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Nộp file thành công',
+            type: 'success',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckthongtin() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Vui lòng nhập đầy đủ thông tin!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckfile() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Vui lòng nhập điểm trước khi nộp minh chứng!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckdiem() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Điểm phải từ 0 đến 10!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+
+    function showInfoToastLuuDiem() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Lưu điểm thành công',
+            type: 'success',
+            duration: 1500
+        });
+    }
+
+</script>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+
+        </div>
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                <span style="  margin-right: 20px; " class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with<i class="ti-heart text-danger ml-1"></i></span>
+            </div>
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+            </div>
+            
+        </footer>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    
+    <script src="/Theme/Table/js/datatables1.min.js"></script>
+    <!-- plugins:js -->
+    <script src="/Theme/vendors/js/vendor.bundle.base1.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/Theme/vendors/chart.js/Chart.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/Theme/js/off-canvas.js"></script>
+    <script src="/Theme/js/hoverable-collapse.js"></script>
+    <script src="/Theme/js/template.js"></script>
+    <script src="/Theme/js/settings.js"></script>
+    <script src="/Theme/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/Theme/js/dashboard.js"></script>
+    <script src="/Theme/js/Chart.roundedBarCharts.js"></script>
+    <!-- End custom js for this page-->
+</body>
+</html>
+
+

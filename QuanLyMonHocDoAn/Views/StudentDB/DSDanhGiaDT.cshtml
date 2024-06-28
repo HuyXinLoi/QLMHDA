@@ -1,0 +1,163 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.CTChamDiemDC>
+
+@{
+    ViewBag.Title = "DSDanhGiaDT";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    .clear {
+        margin-left: 3px;
+        width: 33%
+    }
+</style>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="text-align:center">Mục Đánh Giá Đề Tài</h2>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+
+                                @foreach (var item in Model)
+                                {
+
+                                    float i = 0;
+                                    float KQ = 0;
+                                    <div style="display: block; width: 100%; border: 1px solid green;border-radius:2px; margin-bottom: 10px;">
+                                        <div class="content">
+                                            <div class="content" style="display:flex">
+                                                <div class="col-md-6" style="margin-top:8px">
+                                                    <div class="item-cr1">Tên Đề Tài: <span>@item.TenDeTai</span></div>
+                                                    <div class="item-cr1">Tên Đề Tài: <span>@item.TenGiangVien</span></div>
+                                                    <div class="item-cr1">Ghi chú: <span>@item.GhiChu </span></div>
+                                                </div>
+                                                <div class="col-md-6" style="position:relative;margin-top:10px">
+                                                    <div id="@item.IDDC" style="position: absolute; margin: 0; -ms-transform: translateY(-50%); transform: translateY(-50%); top: 60%; left:40%; ">
+                                                        <span>Xem Chi Tiết</span> <i class="fa fa-arrow-right"></i>
+                                                        <label class="switch">
+                                                            <input type="checkbox">
+                                                            <span class="slider"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div id="ShowDiem_@item.IDDC" style="display: none">
+
+                                                    <div style="height:auto;margin-top:10px">
+                                                        <div id="S_@item.IDDC" style="display:flex">
+                                                            @foreach (var q in item.DSBienBan)
+                                                            {
+                                                                i = i + q.Diem;
+                                                                <div class="clear" style="border:1px solid gray">
+                                                                    <ul style="list-style-type:none">
+                                                                        <li>Tên Giảng Viên:<span>@q.TenGiangVien </span></li>
+                                                                        <li>Đánh giá:<span>@q.DanhGia </span></li>
+                                                                        <li>Điểm:<span>@q.Diem</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                            }
+
+                                                            @{
+                                                                KQ = i / 3;
+                                                            }
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="position:relative;height:25px">
+                                                        <label style="position:absolute;margin:0;top:25%;left:40%">Tổng Điểm:<span id="DiemTB"> @KQ</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top:5px"></div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".slider").click(function () {
+            let id = $(this).closest('div').attr('id');
+            setTimeout(function () {
+                $('#ShowDiem_' + id + '').toggle()
+            }, 200)
+        })
+
+    })
+</script>

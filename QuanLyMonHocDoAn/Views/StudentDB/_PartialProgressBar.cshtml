@@ -1,0 +1,30 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.DTDangKy>
+@using QuanLyMonHocDoAn.Models
+@{
+    var sv = ViewBag.account as Sinhvien;
+}
+<ul class="progress-barstep">
+    @if (ViewBag.TTDT < 6)
+    {
+        for (int i = 1; i <= TrangThaiViewModel.Instance.trangThai.Count() - 1; i++)
+        {
+            if (i <= TrangThaiViewModel.Instance.TrangThaiDeTaiDangLam(sv.MaSoSinhVien))
+            {
+                <li class="section visited current" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+            }
+            else
+            {
+                <li class="section" style="width: 20%;">@TrangThaiViewModel.Instance.trangThai.ElementAt(i - 1).TenTrangThai</li>
+            }
+
+        }
+    }
+    else
+    {
+        <p style='font-size: 24px; margin-left: 40% ;margin-top: 30px; '>Chưa Đạt Yêu Cầu</p>
+        <i class='fas fa-exclamation-triangle' style='font-size: 48px; color: red; margin-left: 46% ;margin-top: 4px; '></i>
+        <p style='font-size: 15px; margin-left: 40% ;margin-top: 30px; '>Vui lòng làm lại đề cương</p>
+
+
+    }
+</ul>

@@ -1,0 +1,395 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.DataChamDiemData>
+@{
+    ViewBag.Title = "DsDeCuong";
+    Layout = "~/Views/Shared/_LayoutGIangVien.cshtml";
+}
+<style>
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 0.875rem;
+        resize: none;
+    }
+
+    .badge-color {
+        background-color: #d6f0e0;
+        color: #0d6832;
+    }
+
+    .tb_two {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+    });
+</script>
+<div class="content-wrapper">
+    <div id="toast">
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="text-align:center">Chấm Điểm Đề Cương</h2>
+                    <br />
+                    <br />
+                    <div class="tb_two">
+                        <div>
+                            @using (Html.BeginForm("DsDeCuong", "GiangVien", FormMethod.Get, new { @class = "form-inline" }))
+                            {
+                                <span style="margin-left:10px">Từ Ngày: </span>
+                                <input style="height:32px" type="date" name="strLoc1" id="strLocjs1" />
+
+                                <spans style="margin-left:10px">Đến Ngày: </spans>
+
+                                <input style="height:32px" type="date" name="strLoc2" id="strLocjs2" />
+
+
+                                <button type="submit" class="btn btn-sm btn-info" id="Loc" style="border-radius: unset; margin-left: 10px;height:32px"><i class="fa-solid fa-list-check"></i> Lọc</button>
+                            }
+                        </div>
+                        <div>
+                            <h4 style="color:red">(*) Vui lòng nhập điểm trước khi nộp minh chứng !</h4>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table" id="mytable">
+                                    <thead class="bg-light">
+                                        <tr style="text-align:center">
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TenDeTai)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.MaSoSinhVien)
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayName("Trạng Thái")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.TenHoiDong)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.LinkDeCuong)
+                                            </th>
+                                            <th style="text-align:center">Hành Động</th>
+
+                                        </tr>
+                                    </thead>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr id="@item.IDDangKy">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenDeTai)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MaSoSinhVien)
+                                            </td>
+
+                                            <td>
+                                                <span class="badge badge-color rounded-pill d-inline">
+                                                    @Html.DisplayFor(modelItem => item.TenTrangThai)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenHoiDong)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LinkDeCuong)
+                                            </td>
+                                            <td style="text-align:center">
+                                                @if (item.MaTrangThai != 2 && item.MaTrangThai != 6 || item.SLTV == true)
+                                                {
+                                                    <button class="btn btn-sm btn-info" style="pointer-events:none;opacity:0.6" name="ChamDiem"><i class="fa-solid fa-list-check"></i> Chấm Điểm</button>
+
+                                                    @:&nbsp
+                                                    <button style="color:white" class="btn btn-sm btn-warning" name="MinhChung"><i class="fa-solid fa-list-check"></i> Minh Chứng</button>
+
+                                                    @:&nbsp
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn btn-sm btn-info" name="ChamDiem"><i class="fa-solid fa-list-check"></i> Chấm Điểm</button>
+
+                                                    @:&nbsp
+                                                    <button style="color:white" class="btn btn-sm btn-warning" name="MinhChung"><i class="fa-solid fa-list-check"></i> Minh Chứng</button>
+
+                                                    @:&nbsp
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal cham diem*@
+
+<div class="modal fade " id="modalCTChamDiem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="title"></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 style="text-align:center">Thông tin đề cương</h3>
+                        <div class="form-group">
+                            <label>Tên Đề Tài: </label>
+                            <input class="form-control " id="TenDT">
+                        </div>
+                        <div class="form-group">
+                            <label>Ghi Chú: </label>
+                            <input class="form-control" id="GhiChu">
+                        </div>
+                        <form action="/GiangVien/GetFile" method="post" target="_blank">
+                            <div>
+                                <label>Link Đề Cương: </label>
+                                <input type="submit" value="" class="form-control" id="Link" name="getfile">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div id="TTDiem" class="col-6">
+                        <h3 style="text-align:center">Phiếu Điểm</h3>
+                        <div class="form-group">
+                            <label>Điểm: </label>
+                            <input type="number" min="0" max="10" value="0" class="form-control" id="Diem">
+                        </div>
+                        <div class="form-group">
+                            <label>Đánh Giá: </label>
+                            <textarea id="ĐanhGia"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style=" margin-left: 25px; margin-bottom: 40px;">
+                <button type="submit" id="btn_Luu" class="btn btn-success">Lưu Điểm</button>
+                <button type="button" class="btn btn-secondary cls" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal up minh chung*@
+<div class="modal fade" id="Upminhchung" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="text-align:center">Minh Chứng</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="file" class="form-control" name="fFileUpload" id="minhchungfile">
+                    <br />
+                    <input type="button" class="btn btn-primary" value="Upload" id="upfile" style="pointer-events:none;opacity:0.5;float:right">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("input:file").change(function () {
+            var file = $('#minhchungfile').val()
+            if (file != "") {
+                $('#upfile').css('pointer-events', 'unset')
+                $('#upfile').css('opacity', '1')
+            }
+        })
+    })
+
+    $(document).on("click", ".cls", function () {
+        location.reload();
+    })
+    $(document).on("click", ".close", function () {
+        location.reload();
+    })
+
+    $(document).on("click", "button[name='MinhChung']", function () {
+        $("#Upminhchung").modal();
+        let id = $(this).closest('tr').attr('id');
+        $('#upfile').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#minhchungfile").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('iddk', id);
+
+                $.ajax({
+                    url: '/GiangVien/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data:
+                        fileData,
+                    success: function (result) {
+                        if (result.code == 200) {
+                            showInfoToastLuufile()
+                            setTimeout(function () { location.reload() }, 700);
+                        }
+                        else {
+                            showInfoToastcheckfile();
+                        }
+
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    })
+
+    $(document).on("click", "button[name='ChamDiem']", function () {
+        $("#modalCTChamDiem").modal();
+        let id = $(this).closest('tr').attr('id');
+        $.ajax({
+            url: '/GiangVien/TTDeTai',
+            type: 'get',
+            cache: false,
+            contentType: false,
+            data: {
+                idDT: id
+            },
+            success: function (data) {
+                if (data.code == 200 && data.dt !== null) {
+                    $('#TenDT').val(data.da.a);
+                    $('#TenDT').prop("readonly", true);
+                    $('#GhiChu').val(data.da.b);
+                    $('#GhiChu').prop("readonly", true);
+                    $('#Link').val(data.da.c);
+                    $('#Link').prop("readonly", true);
+                }
+                else {
+                    alert(data.msg);
+                }
+            }
+        })
+
+        $('#btn_Luu').click(function () {
+            var checkdiem = $('#Diem').val();
+            var checkdanhgia = $('#ĐanhGia').val();
+            if (checkdanhgia === "") {
+                showInfoToastcheckthongtin();
+            }
+            else if (checkdanhgia != "" && (checkdiem < 0 || checkdiem > 10)) {
+                showInfoToastcheckdiem();
+            }
+            else {
+                $.ajax({
+                    url: '/GiangVien/BienBanChamDeCuong',
+                    type: 'post',
+                    data: {
+                        iddt: id,
+                        diem: checkdiem,
+                        danhgia: checkdanhgia
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            showInfoToastLuuDiem();
+                            setTimeout(function () { location.reload() }, 700);
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (error) {
+                        alert("Loi");
+                    }
+                })
+            }
+        })
+
+    });
+
+    function showInfoToastLuufile() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Nộp file thành công',
+            type: 'success',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckthongtin() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Vui lòng nhập đầy đủ thông tin!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckfile() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Vui lòng nhập điểm trước khi nộp minh chứng!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+    function showInfoToastcheckdiem() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Điểm phải từ 0 đến 10!',
+            type: 'info',
+            duration: 1500
+        });
+    }
+
+
+    function showInfoToastLuuDiem() {
+        toast({
+            title: 'Thông Báo!',
+            message: 'Lưu điểm thành công',
+            type: 'success',
+            duration: 1500
+        });
+    }
+
+</script>
+

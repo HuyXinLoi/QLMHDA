@@ -1,0 +1,182 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+
+using System;
+
+namespace GiaLap
+{
+    class Program
+    {
+        static String[] CacLenh = { "MD", "CD", "RD", "DEL", "REN", "TYPE" }; // Chứa 6 câu lệnh trong DOS
+        static String Curdir; // Lưu trữ đường dẫn thư mục làm việc
+
+
+        static int TachChuoi(String S, ref String[] M)
+        {
+            M = S.Split(' '); 
+            return M.Length;
+        }
+
+        static int TimVT_X(String X)
+        {
+            for (int i = 0; i < CacLenh.Length; i++) if (X == CacLenh[i]) return i;
+            return -1;
+        }
+
+        static void TaoThuMuc(String DIRNAME)
+        {
+           try
+            {
+                Directory.CreateDirectory(Curdir + "\\" + DIRNAME); 
+                Console.WriteLine("Directory Created");
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static void ChuyenThuMuc(String DIRNAME_1)
+        {
+            try
+            {
+                Directory.SetCurrentDirectory(DIRNAME_1);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static void XoaThuMuc(String DIRNAME)
+        {
+            try
+            {
+                Directory.Delete(Curdir + "\\" + DIRNAME);
+                Console.WriteLine("Thu Muc Da Xoa");
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        static void XoaTapTin(String DIRNAME)
+        {
+            try
+            {
+                File.Delete(Curdir + "\\" + DIRNAME);
+                Console.WriteLine("Tap tin da xoa");
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static void Doi_Ten_Tap_Tin(String oldname, String newname)
+        {
+            try
+            {
+                Directory.Move(Curdir + "\\" + oldname, Curdir + "\\" + newname);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static void XemNoiDungTapTin(String DIRNAME)
+        {
+            try
+            {
+                StreamReader sr = File.OpenText(DIRNAME);
+                String line;
+                while((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static void Gia_Lap(String[] M)
+        {
+            int vt = TimVT_X(M[0]);
+            switch (vt)
+            {
+                case 0:
+                    TaoThuMuc(M[1]);
+                    break;
+                case 1:
+                    ChuyenThuMuc(M[1]);
+                    break;
+                case 2:
+                    XoaThuMuc(M[1]);
+                    break;
+                case 3:
+                    XoaTapTin(M[1]);
+                    break;
+                case 4:
+                    Doi_Ten_Tap_Tin(M[1], M[2]);
+                    break;
+                case 5:
+                    XemNoiDungTapTin(M[1]);
+                    break;
+                default:
+                    Console.WriteLine("Chua co lenh nay!!!");
+                    break;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+
+
+            String ChuoiLenh; 
+            String[] MangLenh = {}; 
+            
+            while (true)
+            {
+                //Lay thu muc hien hanh
+                Curdir = Directory.GetCurrentDirectory();
+                Console.Write(Curdir + ">");
+
+                //In dau nhay he thong 
+                //Nhap cau lenh
+
+                ChuoiLenh = Console.ReadLine(); 
+                ChuoiLenh = ChuoiLenh.ToUpper();
+
+                //Tach chuoi lenh ra cac thanh phan dua vao mang lenh
+                int dem = TachChuoi(ChuoiLenh, ref MangLenh);
+
+                //Neu lenh la "EXIT" thi thoat
+
+
+                if (MangLenh[0] == "EXIT") return;
+
+
+                Gia_Lap(MangLenh);
+            }
+
+
+
+        }
+
+
+
+    }
+}
+

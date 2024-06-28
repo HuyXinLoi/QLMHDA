@@ -1,0 +1,105 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.ThongBaoChamLai>
+
+<ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+    @*<li class="nav-item">
+    <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+    </li>*@
+    <li class="nav-item">
+        <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section" aria-expanded="true" aria-selected="true">Thông Báo Chấm Lại (@Model.Count())</a>
+    </li>
+</ul>
+<div class="tab-content" id="setting-content">
+    <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+        <!--<div class="d-flex align-items-center justify-content-between border-bottom">-->
+        @*<p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+        <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>*@
+        <!--</div>-->
+        <ul class="chat-list">
+            @{
+                foreach (var item in Model)
+                {
+                    <li class="list active">
+                        <a href="@Url.Action("ThongBaoToDs", "GiangVien", new { id = @item.Id })" style="display:flex;width:80%; text-decoration:none">
+                            @if (item.IsCheck == true)
+                            {
+                                <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="online"></span></div>
+                            }
+                            else
+                            {
+                                <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="online" style="background: #EE0000; "></span></div>
+                            }
+                            <div class="info">
+                                <p>@item.TenDeTai</p>
+                                <p>@item.IsCheck</p>
+                            </div>
+                        </a>
+                        @if (@item.ThoiGian < 60)
+                        {
+                            <small class="text-muted my-auto">@item.ThoiGian phút</small>
+                        }
+                        else if (@item.ThoiGian < 1440)
+                        {
+                            int gio = @item.ThoiGian / 60;
+                            int phut = @item.ThoiGian % 60;
+                            string time = @gio + " giờ " + @phut + " phút";
+                            <small class="text-muted my-auto">@time</small>
+                        }
+                        else
+                        {
+                            int ngay = @item.ThoiGian / 1440;
+                            int gio = (@item.ThoiGian % 1440) / 60;
+                            string time = @ngay + " ngày " + @gio + " giờ";
+                            <small class="text-muted my-auto">@time</small>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+
+
+        @*<li class="list">
+        <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="offline"></span></div>
+        <div class="info">
+        <div class="wrapper d-flex">
+        <p>Catherine</p>
+        </div>
+        <p>Away</p>
+        </div>
+        <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+        <small class="text-muted my-auto">23 min</small>
+        </li>
+        <li class="list">
+        <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="online"></span></div>
+        <div class="info">
+        <p>Daniel Russell</p>
+        <p>Available</p>
+        </div>
+        <small class="text-muted my-auto">14 min</small>
+        </li>
+        <li class="list">
+        <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="offline"></span></div>
+        <div class="info">
+        <p>James Richardson</p>
+        <p>Away</p>
+        </div>
+        <small class="text-muted my-auto">2 min</small>
+        </li>
+        <li class="list">
+        <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="online"></span></div>
+        <div class="info">
+        <p>Madeline Kennedy</p>
+        <p>Available</p>
+        </div>
+        <small class="text-muted my-auto">5 min</small>
+        </li>
+        <li class="list">
+        <div class="profile"><img src="~/Theme/images/iconMail.png" alt="image"><span class="online"></span></div>
+        <div class="info">
+        <p>Sarah Graves</p>
+        <p>Available</p>
+        </div>
+        <small class="text-muted my-auto">47 min</small>
+        </li>*@
+        </ul>
+    </div>
+</div>

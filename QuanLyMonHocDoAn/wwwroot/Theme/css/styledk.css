@@ -1,0 +1,133 @@
+﻿.form-group .col-md-offset-2 .btn {
+    background-color: #16C3AA;
+    color: white;
+    font-weight: 700;
+}
+
+.form-group .col-inline {
+    display: inline-block
+}
+
+.btn-Nhom {
+    height: 2.875rem;
+    border-radius: 6px;
+    padding: 0 5px;
+    background-color: #16C3AA;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.modal-container {
+    background-color: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFacein ease .6s;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.modal-header {
+    background-color: #79DCCE;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 30px;
+}
+
+.modal-heading-icon {
+    margin-right: 14px;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.modal-input {
+    border: 2px solid #000;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+#btn-add {
+    background-color: #79DCCE;
+    width: 100%;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+    #btn-add:hover {
+        opacity: 0.9;
+    }
+
+.modal-body .col-2-Nhom {
+    display: inline-block;
+}
+
+modal-body .col-2-Nhom .btn-add-Nhom {
+    margin-left: 55px;
+}
+
+.modal-footer {
+    padding: 16px;
+    text-align: right;
+}
+
+    .modal-footer a {
+        color: #2196f3;
+    }
+
+.modal.open {
+    display: flex;
+}
+
+@keyframes modalFacein {
+    from {
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

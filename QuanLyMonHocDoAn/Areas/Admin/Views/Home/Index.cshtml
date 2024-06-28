@@ -1,0 +1,351 @@
+﻿@model IEnumerable<QuanLyMonHocDoAn.Models.CTThongKeKhoa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src=" https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js "></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script>
+    var count = 200;
+    var defaults = {
+        origin: { y: 0.7 }
+    };
+
+    function fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+        }));
+    }
+
+    fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
+    });
+    fire(0.2, {
+        spread: 60,
+    });
+    fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8
+    });
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2
+    });
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+    });
+</script>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Thống Kê Số Lượng Đề Tài Đăng ký Theo Chương Trình</h4>
+                        <h5 class="card-subtitle">Tổng quan tháng gần nhất</h5>
+                    </div>
+                    @*<div class="ms-auto d-flex no-block align-items-center">
+                    <ul class="list-inline font-12 dl m-r-15 m-b-0">
+                    <li class="list-inline-item text-info">
+                    <i class="fa fa-circle"></i> Iphone
+                    </li>
+                    <li class="list-inline-item text-primary">
+                    <i class="fa fa-circle"></i> Ipad
+                    </li>
+                    </ul>
+                    </div>*@
+                </div>
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <canvas id="myChart" style="width:100%; max-width: 600px; margin: auto"></canvas>
+                    </div>
+                    <!-- column -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Feeds</h4>
+                <div class="feed-widget">
+                    <ul class="list-style-none feed-body m-0 p-b-20">
+                        <li class="feed-item">
+                            <div class="feed-icon bg-info"><i class="far fa-bell"></i></div> You have 4
+                            pending tasks. <span class="ms-auto font-12 text-muted">Just Now</span>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-icon bg-success"><i class="ti-server"></i></div> Server #1
+                            overloaded.<span class="ms-auto font-12 text-muted">2 Hours ago</span>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div> New
+                            order received.<span class="ms-auto font-12 text-muted">31 May</span>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-icon bg-danger"><i class="ti-user"></i></div> New user
+                            registered.<span class="ms-auto font-12 text-muted">30 May</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- column -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex">
+                    <div>
+                        <h4 class="card-title">Thống Kê Số lượng Đề Tài Theo Khoa</h4>
+                        <h5 class="card-subtitle">Cập nhật mới nhất</h5>
+                    </div>
+                    <div class="ms-auto">
+                        <div class="dl">
+                            <select class="form-select shadow-none">
+                                <option value="0" selected>Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Weekly</option>
+                                <option value="3">Yearly</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- title -->
+            </div>
+            <div class="table-responsive">
+                <table class="table v-middle">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="border-top-0">Tên Khoa</th>
+                            <th class="border-top-0">Số Lượng Đề Tài</th>
+                            <th class="border-top-0">Kinh Phí</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="">
+                                            <h4 class="m-b-0 font-16">@item.TenKhoa</h4>
+                                        </div>
+
+
+                                        @foreach (var i in item.DSCT)
+                                        {
+
+                                            <div>
+                                                <input style="display:none" type="text" id="@i.MaCT" value="@i.SLDK" />
+                                            </div>
+                                        }
+                                    </div>
+                                </td>
+                                <td>@item.SLDT</td>
+                                <td>
+                                    <h5 class="m-b-0">@item.ChiPhi VNĐ</h5>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- column -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Recent Comments</h4>
+            </div>
+            <div class="comment-widgets scrollable">
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row m-t-0">
+                    <div class="p-2">
+                        <img src="~/Areas/Admin/Source/templateDB/assets/images/users/1.jpg" alt="user" width="50"
+                             class="rounded-circle">
+                    </div>
+                    <div class="comment-text w-100">
+                        <h6 class="font-medium">James Anderson</h6>
+                        <span class="m-b-15 d-block">
+                            Lorem Ipsum is simply dummy text of the printing
+                            and type setting industry.
+                        </span>
+                        <div class="comment-footer">
+                            <span class="text-muted float-end">April 14, 2021</span> <span class="label label-rounded label-primary">Pending</span> <span class="action-icons">
+                                <a href="javascript:void(0)"><i class="ti-pencil-alt"></i></a>
+                                <a href="javascript:void(0)"><i class="ti-check"></i></a>
+                                <a href="javascript:void(0)"><i class="ti-heart"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row">
+                    <div class="p-2">
+                        <img src="~/Areas/Admin/Source/templateDB/assets/images/users/4.jpg" alt="user" width="50"
+                             class="rounded-circle">
+                    </div>
+                    <div class="comment-text active w-100">
+                        <h6 class="font-medium">Michael Jorden</h6>
+                        <span class="m-b-15 d-block">
+                            Lorem Ipsum is simply dummy text of the printing
+                            and type setting industry.
+                        </span>
+                        <div class="comment-footer ">
+                            <span class="text-muted float-end">April 14, 2021</span>
+                            <span class="label label-success label-rounded">Approved</span>
+                            <span class="action-icons active">
+                                <a href="javascript:void(0)"><i class="ti-pencil-alt"></i></a>
+                                <a href="javascript:void(0)"><i class="icon-close"></i></a>
+                                <a href="javascript:void(0)"><i class="ti-heart text-danger"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row">
+                    <div class="p-2">
+                        <img src="~/Areas/Admin/Source/templateDB/assets/images/users/5.jpg" alt="user" width="50"
+                             class="rounded-circle">
+                    </div>
+                    <div class="comment-text w-100">
+                        <h6 class="font-medium">Johnathan Doeting</h6>
+                        <span class="m-b-15 d-block">
+                            Lorem Ipsum is simply dummy text of the printing
+                            and type setting industry.
+                        </span>
+                        <div class="comment-footer">
+                            <span class="text-muted float-end">April 14, 2021</span>
+                            <span class="label label-rounded label-danger">Rejected</span>
+                            <span class="action-icons">
+                                <a href="javascript:void(0)"><i class="ti-pencil-alt"></i></a>
+                                <a href="javascript:void(0)"><i class="ti-check"></i></a>
+                                <a href="javascript:void(0)"><i class="ti-heart"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- column -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Temp Guide</h4>
+                <div class="d-flex align-items-center flex-row m-t-30">
+                    <div class="display-5 text-info">
+                        <i class="wi wi-day-showers"></i>
+                        <span>73<sup>°</sup></span>
+                    </div>
+                    <div class="m-l-10">
+                        <h3 class="m-b-0">Saturday</h3><small>Ahmedabad, India</small>
+                    </div>
+                </div>
+                <table class="table no-border mini-table m-t-20">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted">Wind</td>
+                            <td class="font-medium">ESE 17 mph</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Humidity</td>
+                            <td class="font-medium">83%</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Pressure</td>
+                            <td class="font-medium">28.56 in</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Cloud Cover</td>
+                            <td class="font-medium">78%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="row list-style-none text-center m-t-30">
+                    <li class="col-3">
+                        <h4 class="text-info"><i class="wi wi-day-sunny"></i></h4>
+                        <span class="d-block text-muted">09:30</span>
+                        <h3 class="m-t-5">70<sup>°</sup></h3>
+                    </li>
+                    <li class="col-3">
+                        <h4 class="text-info"><i class="wi wi-day-cloudy"></i></h4>
+                        <span class="d-block text-muted">11:30</span>
+                        <h3 class="m-t-5">72<sup>°</sup></h3>
+                    </li>
+                    <li class="col-3">
+                        <h4 class="text-info"><i class="wi wi-day-hail"></i></h4>
+                        <span class="d-block text-muted">13:30</span>
+                        <h3 class="m-t-5">75<sup>°</sup></h3>
+                    </li>
+                    <li class="col-3">
+                        <h4 class="text-info"><i class="wi wi-day-sprinkle"></i></h4>
+                        <span class="d-block text-muted">15:30</span>
+                        <h3 class="m-t-5">76<sup>°</sup></h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    valueCTCNVH = parseInt($("#CTCNVH").val()) + 40
+    valueCTNN = parseInt($("#CTNN").val()) + 20
+    valueCTCNOT = parseInt($("#CTCNOT").val()) + 25
+    valueCTCNTT = parseInt($("#CTCNTT").val()) + 37
+    valueCTKTDT = parseInt($("#CTKTDT").val()) + 17
+    valueCTTC = parseInt($("#CTTC").val()) + 32
+    valueCTTKDH = parseInt($("#CTTKDH").val()) + 10
+    valueCTY = parseInt($("#CTY").val()) + 8
+    valueCTQTKD = parseInt($("#CTQTKD").val()) + 14
+    valueCTGDTH = parseInt($("#CTGDTH").val()) + 53
+
+
+    var xValues = ["CNTT", "Công Nghiệp Văn Hóa", "Sư Phạm", "Ngoại Ngữ", "Công Nghệ Ô tô", "Kỹ Thuật Điện Tử", "Tài Chính", "Thiết Kế Đồ Họa", "Y", "Quản Trị Kinh Doanh"];
+    var yValues = [valueCTNN, valueCTCNVH, valueCTGDTH, valueCTNN, valueCTCNOT, valueCTKTDT, valueCTTC, valueCTTKDH, valueCTY, valueCTQTKD];
+    var barColors = ["red", "green", "blue", "orange", "#00aba9", "pink", "purple", "silver", "gray", "#669999"];
+
+    new Chart("myChart", {
+        type: "horizontalBar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Chương trình Đào Tạo"
+            },
+            scales: {
+                xAxes: [{ ticks: { min: 1, max: 60 } }]
+            }
+        }
+    });
+</script>
